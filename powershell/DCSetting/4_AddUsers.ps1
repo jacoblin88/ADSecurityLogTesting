@@ -4,6 +4,9 @@ New-ADUser -Name "ITadmin" -SamAccountName "ITadmin" -AccountPassword $pw -Enabl
 $pw = ConvertTo-SecureString "P@ssw0rdITuser" -AsPlainText -Force
 New-ADUser -Name "ITuser" -SamAccountName "ITuser" -AccountPassword $pw -Enabled $true -Path "ou=IT Dept,dc=atop,dc=com,dc=tw"
 
+$pw = ConvertTo-SecureString "P@ssw0rdcom_add" -AsPlainText -Force
+New-ADUser -Name "com_add" -SamAccountName "com_add" -AccountPassword $pw -Enabled $true -Path "ou=IT Dept,dc=atop,dc=com,dc=tw"
+
 $pw = ConvertTo-SecureString "P@ssw0rdRDadmin" -AsPlainText -Force
 New-ADUser -Name "RDadmin" -SamAccountName "RDadmin" -AccountPassword $pw -Enabled $true -Path "ou=RD Dept,dc=atop,dc=com,dc=tw"
 
