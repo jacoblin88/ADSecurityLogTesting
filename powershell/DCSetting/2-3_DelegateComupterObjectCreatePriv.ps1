@@ -1,3 +1,4 @@
+Install-Module -Name 'DSACL'
 Import-Module -Name 'ActiveDirectory','DSACL'
 
 $TargetDN_IT = 'OU=IT Dept,DC=atop,DC=com,DC=tw'
