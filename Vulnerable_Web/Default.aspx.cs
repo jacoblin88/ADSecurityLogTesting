@@ -26,17 +26,11 @@ namespace Vulnerable_Web
             //get the file name of the posted image  
             string imgName = FileUpload1.FileName;
 
-            //string user_name = HttpContext.Current.User.Identity.Name;
-            string user_name = "ab\\cd";
+            string user_name = HttpContext.Current.User.Identity.Name;
             string[] sArray = user_name.Split('\\');
-            string apPath = System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath;
-            Response.Write(apPath);
-            //CreateD
-            String UserPath = apPath +  "Upload/" + sArray[1]; 　
-            System.IO.Directory.CreateDirectory(UserPath);
 
             //sets the image path
-            string imgPath = "Upload/" + sArray[1] + "/" +imgName;
+            string imgPath = "Upload/" + sArray[1] + "_" +imgName;
             //get the size in bytes that  
 
             int imgSize = FileUpload1.PostedFile.ContentLength;
