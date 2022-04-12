@@ -4,6 +4,6 @@ build three OU
 - RD Dept
 - Customer Dept
 #>
-New-ADOrganizationUnit -Name "IT Dept" -Path "DC=atop,DC=com,DC=tw" -ProtectedFromAccidentalDeletion $true
-New-ADOrganizationUnit -Name "RD Dept" -Path "DC=atop,DC=com,DC=tw" -ProtectedFromAccidentalDeletion $true
-New-ADOrganizationUnit -Name "CS Dept" -Path "DC=atop,DC=com,DC=tw" -ProtectedFromAccidentalDeletion $true
+New-ADOrganizationalUnit -Name "IT Dept" -Path "DC=atop,DC=com,DC=tw" -ProtectedFromAccidentalDeletion $true
+New-ADOrganizationalUnit -Name "RD Dept" -Path "DC=atop,DC=com,DC=tw" -ProtectedFromAccidentalDeletion $true
+New-ADOrganizationalUnit -Name "CS Dept" -Path "DC=atop,DC=com,DC=tw" -ProtectedFromAccidentalDeletion $true
