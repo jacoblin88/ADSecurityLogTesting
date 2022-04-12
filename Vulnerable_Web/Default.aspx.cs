@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Text.RegularExpressions;
+using System.IO;
 
 namespace Vulnerable_Web
 {
@@ -25,12 +26,17 @@ namespace Vulnerable_Web
             //get the file name of the posted image  
             string imgName = FileUpload1.FileName;
 
-            string user_name = HttpContext.Current.User.Identity.Name;
+            //string user_name = HttpContext.Current.User.Identity.Name;
+            string user_name = "ab\\cd";
+            string[] sArray = user_name.Split('\\');
+            string apPath = System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath;
+            Response.Write(apPath);
+            //CreateD
+            String UserPath = apPath +  "Upload/" + sArray[1]; 　
+            System.IO.Directory.CreateDirectory(UserPath);
 
-            string[] sArray = Regex.Split(user_name,"\\", RegexOptions.IgnoreCase);
-
-            //sets the image path  
-            string imgPath = "Uploads/" + sArray[1] +imgName;
+            //sets the image path
+            string imgPath = "Upload/" + sArray[1] + "/" +imgName;
             //get the size in bytes that  
 
             int imgSize = FileUpload1.PostedFile.ContentLength;
