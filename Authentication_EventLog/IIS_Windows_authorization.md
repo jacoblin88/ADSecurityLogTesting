@@ -9,3 +9,5 @@
 
 ![圖 1](../images/e971dd1031eb0376ac2ca0bbca0463473b78bcf1037feac3b6da789e7008799b.png)
 
+- Case1:使用者使用瀏覽器登入IIS服務所產生紀錄
+
