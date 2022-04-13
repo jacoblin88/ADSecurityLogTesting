@@ -1,6 +1,3 @@
-Install-WindowsFeature -name Web-Server -IncludeManagementTools
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-WindowsAuthentication
-
 Import-Module WebAdministration
 New-Item -Path IIS:\\AppPools\vulnweb
 
