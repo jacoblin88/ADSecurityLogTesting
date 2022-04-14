@@ -16,8 +16,29 @@
     - 可看到產生事件的exe
 ![圖 2](../images/7c3e4e7d4e72fc6394d44b9a92a33f585f8b858743653d920658a66005aad5b1.png)
   - IIS端產生事件: 4625(NTLM)
-![圖 3](../images/706627c5700b8c56b32b49b8e4edb24c3210e328fcf02fe08d90f3e67086e462.png)  
+![圖 3](../images/706627c5700b8c56b32b49b8e4edb24c3210e328fcf02fe08d90f3e67086e462.png)
+
+- Case2:從同網段內KALI攻擊機發起驗證
+  - 直接連線網站:
+    - 無法驗證，且不會產生security log
+  - 由domain內其中一台機器(A)，ssh反向tunnel到攻擊機器單一port
+    - IPweb:IPwebport <==> KaliLocal:KaliPort
+    - kali browser 訪問 KaliLocal:KaliPort
+    - 結果:可發起NTLM驗證，且可成功登入網站
+    - 差異:
+      - EventLog一樣為4625，IP為機器A的
+      - 但機器名稱變為:WorkStation
+        - **MDI上會有差異** =>**此場景列入MDI測試**
 
 
 ### Kerberos
-[IIS with kerberos](https://github.com/SurajDixit/KerberosConfigMgrIIS)
+
+- 使用IP存取IIS Website:
+  - 驗證會降級成NTLM
+- 使用FQDN存取:
+  - 使用domain不存在的user:降級為NTLM
+  - 使用domain存在的user:
+    - 登入失敗:未產生任何紀錄
+
+[IIS with kerberos settings](https://techcommunity.microsoft.com/t5/iis-support-blog/setting-up-kerberos-authentication-for-a-website-in-iis/ba-p/347882)
+[IIS with kerberos tools](https://github.com/SurajDixit/KerberosConfigMgrIIS)
