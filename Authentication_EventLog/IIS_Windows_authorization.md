@@ -8,6 +8,17 @@
 ## 場景敘述
 
 ### NTLM
+```
+false overview(no ntlm between client with browser and domain controller)
+
+[overview](https://siddhivinayak-sk.medium.com/ntlm-based-user-authentication-and-sso-in-web-application-4450eadb2332)
+```
+```mermaid
+sequenceDiagram
+
+Client(Browser)->>WebServer:aa
+
+```
 
 ![圖 1](../images/e971dd1031eb0376ac2ca0bbca0463473b78bcf1037feac3b6da789e7008799b.png)
 
@@ -21,7 +32,7 @@
 - Case2:從同網段內KALI攻擊機發起驗證
   - 直接連線網站:
     - 無法驗證，且不會產生security log
-  - 由domain內其中一台機器(A)，ssh反向tunnel到攻擊機器單一port
+  - 由domain內其中一台機器(A)登入domain user和本機帳戶，ssh反向tunnel到攻擊機器單一port
     - IPweb:IPwebport <==> KaliLocal:KaliPort
     - kali browser 訪問 KaliLocal:KaliPort
     - 結果:可發起NTLM驗證，且可成功登入網站
@@ -29,6 +40,7 @@
       - EventLog一樣為4625，IP為機器A的
       - 但機器名稱變為:WorkStation
         - **MDI上會有差異** =>**此場景列入MDI測試**
+![圖 1](../images/45b0cfa6704aff10c8dbbc706f05119338a0018d91b3970c1ef308e01fcda425.png)  
 
 
 ### Kerberos
@@ -39,6 +51,7 @@
   - 使用domain不存在的user:降級為NTLM
   - 使用domain存在的user:
     - 登入失敗:未產生任何紀錄
+    - kerberos
 
 [IIS with kerberos settings](https://techcommunity.microsoft.com/t5/iis-support-blog/setting-up-kerberos-authentication-for-a-website-in-iis/ba-p/347882)
 [IIS with kerberos tools](https://github.com/SurajDixit/KerberosConfigMgrIIS)
