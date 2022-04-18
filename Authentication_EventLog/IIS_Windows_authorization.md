@@ -11,12 +11,31 @@
 ```
 false overview(no ntlm between client with browser and domain controller)
 
+https://daiker.gitbook.io/windows-protocol/ntlm-pian/4
+
 [overview](https://siddhivinayak-sk.medium.com/ntlm-based-user-authentication-and-sso-in-web-application-4450eadb2332)
 ```
 ```mermaid
 sequenceDiagram
+Title:NTLM Over HTTP Overview
+participant C as Client
+participant W as WebServer
+Actor DC as DC
 
-Client(Browser)->>WebServer:aa
+C-->>W:HTTP Request
+W-->>C:HTTP Unauthorized
+C-->>W:HTTP(NTLM Negotiate)
+W-->>C:HTTP(NTLM Challenge)
+C-->>W:HTTP(NTLM Authorization)
+Note right of C:UserName<br>Computer Name(NetBios)<br>Net-NTLM Hash
+W->>DC:NetLogon
+Note right of DC:User NTLM hash check
+DC->>W:Result(Fail)
+Note Left of W:Event:4625<br>Username<br>Computer Name(NetBios)
+W-->>C:Fail Auth
+
+classDef alexclass fill:#f9f,stroke:#fff,stroke-width:2px;
+  class C alexclass;
 
 ```
 
