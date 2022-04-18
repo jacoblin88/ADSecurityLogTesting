@@ -34,8 +34,7 @@ DC->>W:Result(Fail)
 Note Left of W:Event:4625<br>Username<br>Computer Name(NetBios)
 W-->>C:Fail Auth
 
-classDef alexclass fill:#f9f,stroke:#fff,stroke-width:2px;
-  class C alexclass;
+classDef DC stroke: #fff, fill: #f9f
 
 ```
 
