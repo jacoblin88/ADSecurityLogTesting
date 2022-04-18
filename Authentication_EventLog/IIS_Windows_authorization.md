@@ -34,7 +34,7 @@ DC->>W:Result(Fail)
 Note Left of W:Event:4625<br>Username<br>Computer Name(NetBios)
 W-->>C:Fail Auth
 
-classDef DC stroke: #fff, fill: #f9f
+classDef DC stroke: SOLID_OPEN_ARROW, fill: #f9f
 
 ```
 
