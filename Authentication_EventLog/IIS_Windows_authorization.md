@@ -27,6 +27,7 @@ W-->>C:HTTP Unauthorized
 C-->>W:HTTP(NTLM Negotiate)
 W-->>C:HTTP(NTLM Challenge)
 C-->>W:HTTP(NTLM Authorization)
+Note left of C:EventLog 4648<br>Process Name<br>Connect IP<br>
 Note right of C:UserName<br>Computer Name(NetBios)<br>Net-NTLM Hash
 W->>DC:NetLogon
 Note right of DC:User NTLM hash check
